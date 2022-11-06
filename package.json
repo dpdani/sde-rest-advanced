@@ -1,5 +1,5 @@
 {
-  "name": "tutorial-express-leaflet",
+  "name": "sde-rest-advanced",
   "version": "0.0.0",
   "private": true,
   "scripts": {
@@ -7,10 +7,11 @@
     "build": "browserify webmap.js -o public/javascripts/webmap.js & cp node_modules/leaflet/dist/leaflet.css public/stylesheets/leaflet.css"
   },
   "dependencies": {
-    "cookie-parser": "~1.4.4",
-    "debug": "~2.6.9",
-    "express": "~4.16.1",
-    "leaflet": "^1.9.2",
-    "morgan": "~1.9.1"
+    "cookie-parser": "1.4.4",
+    "debug": "2.6.9",
+    "express": "4.16.1",
+    "leaflet": "1.9.2",
+    "morgan": "1.9.1",
+    "browserify": "17.0.0"
   }
 }
