@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "start": "node ./bin/www",
-    "build": "browserify webmap.js -o public/javascripts/webmap.js & cp node_modules/leaflet/dist/leaflet.css public/stylesheets/leaflet.css"
+    "build": "browserify webmap.js -o public/js/webmap.js && cp node_modules/leaflet/dist/leaflet.css public/css/leaflet.css"
   },
   "dependencies": {
     "cookie-parser": "1.4.4",
