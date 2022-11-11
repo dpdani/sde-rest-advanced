@@ -9,7 +9,7 @@
 	<title>SDE Rest Advanced</title>
 </head>
 
-<body onload="myonloadfunction()">
+<body>
 	<div class="w3-container w3-indigo">
 		<h1>NearMe Events</h1>
 	</div>
@@ -18,13 +18,23 @@
 		<div class="w3-card-4">
 		  <form class="w3-container" action="/" method="get">
 			<p>
-			<input class="w3-input" type="text" id="lat" name="lat">
+			<input class="w3-input" type="number" id="lat" name="lat" step=".000001" required min="0">
 			<label for="lat">Latitude</label></p>
 			<p>     
-			<input class="w3-input" type="text" id="lon" name="lon">
+			<input class="w3-input" type="number" id="lon" name="lon" step=".000001" required min="0">
 			<label for="lon">Longitude</label></p>
+			<p>
+			<input class="w3-input" type="text" id="add" name="add">
+			<label for="add">Address</label></p>
 			<br>
-			<input type="submit" value="Submit" class="w3-btn w3-indigo ">
+			<div class="w3-left">
+				<input type="submit" value="Submit" class="w3-btn w3-indigo ">
+			</div>
+			<div class="w3-right">
+				<button type="button" class="w3-btn w3-purple w3-round-xxlarge" onclick="loadCordinates(41.40338, 2.17403, 'Sagrada Familia');">Sagrada Familia</button>
+				<button type="button" class="w3-btn w3-purple w3-round-xxlarge" onclick="loadCordinates(41.890210, 12.492231, 'Colosseum')">Colosseum</button>
+				<button type="button" class="w3-btn w3-purple w3-round-xxlarge" onclick="loadCordinates(46.06742, 11.12133, 'Trento')">Trento</button>
+			</div>
 		  </form>
 		  <br><br>
 		  <div id="map" class=""></div>
