@@ -1,0 +1,4 @@
+[submodule "docker/lab4/RESTbasic"]
+	path = docker/lab4/RESTbasic
+	url = https://github.com/iPaoloTM/RESTbasic
+	branch = develop
