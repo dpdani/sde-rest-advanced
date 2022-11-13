@@ -12,6 +12,7 @@
     "express": "4.16.1",
     "leaflet": "1.9.2",
     "morgan": "1.9.1",
-    "browserify": "17.0.0"
+    "browserify": "17.0.0",
+    "node-fetch": "2.6.7"
   }
 }

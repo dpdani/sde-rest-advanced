@@ -7,6 +7,30 @@ services:
       - "8080:8080"
     environment:
       PORT: 8080
+      LAB_4_URL: http://lab-4:8044
+    links:
+      - lab-4
+    network_mode: bridge
 
-#  lab-4:
-#    build: docker/lab-4
+  lab-4:
+    build: docker/lab4
+    ports:
+      - "8044:8044"
+    environment:
+      PORT: 8044
+      MONGO_HOST: mongo:27017
+      MONGO_ROOT_USER: sde
+      MONGO_ROOT_PWD: password
+    links:
+      - mongo
+    network_mode: bridge
+
+  mongo:
+    image: mongo:6.0.2
+    ports:
+      - "27017:27017"
+    network_mode: bridge
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: sde
+      MONGO_INITDB_ROOT_PASSWORD: password
+      MONGO_INITDB_DATABASE: events_db
