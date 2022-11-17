@@ -8,8 +8,6 @@ const defaultRadius = 1000; // 1km
 
 const searchEvents = async (lat, lon, category, date) => {
     const city = "";
-    // let endDate = new Date();
-    // endDate.setUTCDate(date.getUTCDate() + 1);
     let query = `${process.env.LAB_4_URL}/v1/events?`
     if (lat !== undefined && lon !== undefined) {
         query += `&geo=${lat},${lon}`;
@@ -24,7 +22,7 @@ const searchEvents = async (lat, lon, category, date) => {
         query += `&category=${category}`;
     }
     if (date !== undefined) {
-        query += `&startDate=${date.toISOString()}&endDate=${endDate.toISOString()}`;
+        query += `&date=${date.toISOString()}`;
     }
     // let query = `${process.env.LAB_4_URL}/v1/events`
     console.log(query);
