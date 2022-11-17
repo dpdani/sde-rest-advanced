@@ -9,7 +9,7 @@ router.get('/', function(req, res, next) {
 });
 
 router.get("/test", async function (req, res, next) {
-  const eventIds = await lab4client.searchEvents(45.454967071564106, 11.02984920555249, "");
+  const eventIds = await lab4client.searchEvents(45.454967071564106, 11.02984920555249, "", new Date("2022-10-18"));
   let events = await lab4client.prepareEventsForMap(eventIds);
   await res.send(events);
 });
