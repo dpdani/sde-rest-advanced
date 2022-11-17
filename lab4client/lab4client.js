@@ -8,11 +8,11 @@ const defaultRadius = 1000; // 1km
 
 const searchEvents = async (lat, lon, category, date) => {
     const city = "";
-    let endDate = new Date();
-    endDate.setUTCDate(date.getUTCDate() + 1);
+    // let endDate = new Date();
+    // endDate.setUTCDate(date.getUTCDate() + 1);
     let query = `${process.env.LAB_4_URL}/v1/events?`
     if (lat !== undefined && lon !== undefined) {
-        query += `&geo=${lon},${lat}`;
+        query += `&geo=${lat},${lon}`;
     }
     if (defaultRadius !== undefined) {
         query += `&radius=${defaultRadius}`;
