@@ -3,7 +3,7 @@ const https = require("https");
 const categories = require("./categories").categories;
 
 
-const defaultRadius = 1000; // 1km
+const defaultRadius = 10000; // 10km
 
 
 const searchEvents = async (lat, lon, category, date) => {
@@ -38,14 +38,18 @@ const prepareOneEvent = async (eventId) => {
     // console.log(url);
     const response = await fetch(url);
     const content = await response.json();
-    // console.log(content);
+    //console.log("JSON CONTENT FROM LAB4: ", content);
     return {
         id: eventId,
         title: content.title,
+        // Your code here for category
+        lat: content.physicalAddress.geo.coordinates[0],
+        lon: content.physicalAddress.geo.coordinates[1]
     };
 }
 
 const prepareEventsForMap = async (eventIds) => {
+    console.log("server-side events lenght: ", eventIds.length)
     for (let i = 0; i < eventIds.length; i++) {
         eventIds[i] = await prepareOneEvent(eventIds[i]);
     }

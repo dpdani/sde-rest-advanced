@@ -10,5 +10,4 @@ function isLongitude(lon) {
   return isFinite(lon) && Math.abs(lon) <= 180;
 }
 
-
 module.exports = router;
