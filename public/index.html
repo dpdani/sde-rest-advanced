@@ -26,9 +26,9 @@
       <p>
         <input class="w3-input" type="number" id="lon" name="lon" step="any" required min="0">
         <label for="lon">Longitude</label></p>
-      <p>
+      <!--<p>
         <input class="w3-input" type="text" id="add" name="add">
-        <label for="add">Address</label></p>
+        <label for="add">Address</label></p>-->
       <br>
       <div class="w3-left">
         <input type="submit" value="Submit" class="w3-btn w3-indigo ">
@@ -41,22 +41,22 @@
                 onclick="loadCordinates(41.890210, 12.492231, 'Colosseum')">Colosseum
         </button>
         <button type="button" class="w3-btn w3-purple w3-round-xxlarge"
-                onclick="loadCordinates(45.454967, 11.029849, 'Trento')">Trento
+                onclick="loadCordinates(45.454967, 11.029849, 'Verona')">Verona
         </button>
-      </div>
-    </form>
-    <form class="w3-container" action="/searchOSM" method="get">
-      <p>
-        <input class="w3-input" type="text" id="name" name="name">
-        <label for="name">Name</label></p>
-      <div class="w3-left" style="margin-left: 10px;">
-        <input id="sbname" type="submit" value="Search by name" class="w3-btn w3-indigo">
       </div>
     </form>
     <br><br>
     <div id="map" class=""></div>
     <script src="js/webmap.js"></script>
     <script src="js/myjs.js"></script>
+    <br><br>
+    <form class="w3-container" action="/searchOSM" method="get">
+      <p>
+        <input class="w3-input" type="text" id="name" name="name" required>
+        <label for="name">Name</label></p>
+        <input id="sbname" type="submit" value="Search by name" class="w3-btn w3-indigo">
+        <!--<div class="w3-left" style="margin-left: 10px;"></div>-->
+    </form>
     <br><br>
   </div>
 </div>
