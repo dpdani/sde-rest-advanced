@@ -2,7 +2,7 @@ function loadCordinates(latValue = 41.40338, lonValue = 2.17403, addValue = "Sag
 {
     let lat = document.getElementById("lat");
     let lon = document.getElementById("lon");
-    let add = document.getElementById("add");
+    //let add = document.getElementById("add");
 
     lat.value = latValue;
     lon.value = lonValue;
