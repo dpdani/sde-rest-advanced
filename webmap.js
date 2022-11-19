@@ -9,7 +9,7 @@ lon = params.get('lon');
 
 console.log("In to Webmap");
 
-const map = L.map('map').setView([lat, lon], 17);
+const map = L.map('map').setView([lat, lon], 13);
 
 L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
 	maxZoom: 19,
@@ -32,17 +32,17 @@ xhttp.onreadystatechange = function() {
 	  // Set popups
 	  if(events !== undefined){
 		console.log("LENGHT: ", events.length)
+		var markers = L.markerClusterGroup();
 		for (var i = 0; i < events.length; i++) {
 			console.log("ADDEDD Event: ", events[i]);
+
 			marker = new L.marker([events[i].lat, events[i].lon])
-			  .bindPopup(events[i].title)
-			  .addTo(map);
-		  }
+			  .bindPopup(events[i].title);
+
+			markers.addLayer(marker);
+		}
+		map.addLayer(markers);
 	  }
    }
 };
 xhttp.send();
-
-
-
-  
