@@ -32,10 +32,11 @@ router.get("/flow", async function (req, res, next) {
   console.log("lon:", lon);
 
   // Read lab 4 data 
-  const eventIds = await lab4client.searchEvents(lat, lon, "", new Date("2022-10-18"));
+  const eventIds = await lab4client.searchEvents(lat, lon, "", new Date("2021-10-18"));
   console.log('events list: ', eventIds);
   json_events = await lab4client.prepareEventsForMap(eventIds);
   
+  // Redirect to standard route --> '/' 
   await res.redirect('../?' + new URLSearchParams({lat:lat, lon:lon}));
 });    
 

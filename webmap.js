@@ -7,8 +7,6 @@ const L = require('leaflet');
 lat = params.get('lat');
 lon = params.get('lon');
 
-console.log("In to Webmap");
-
 const map = L.map('map').setView([lat, lon], 17);
 
 L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
@@ -26,7 +24,7 @@ xhttp.onreadystatechange = function() {
    if (this.readyState == 4 && this.status == 200) {
 
       // Response
-	  console.log("response: ", this.responseText);
+	  //console.log("response: ", this.responseText);
       events = JSON.parse(this.responseText);
 
 	  // Set popups
