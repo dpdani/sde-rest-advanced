@@ -6,7 +6,7 @@ const categories = require("./categories").categories;
 const defaultRadius = 10000; // 10km
 
 
-const searchEvents = async (lat, lon, category, date) => {
+const searchEvents = async (lat, lon, category) => {
     const city = "";
     let query = `${process.env.LAB_4_URL}/v1/events?`
     if (lat !== undefined && lon !== undefined) {
@@ -21,14 +21,12 @@ const searchEvents = async (lat, lon, category, date) => {
     if (category !== "") {
         query += `&category=${category}`;
     }
-    if (date !== undefined) {
-        query += `&date=${date.toISOString()}`;
-    }
     // let query = `${process.env.LAB_4_URL}/v1/events`
     console.log(query);
     const response = await fetch(query);
-    // console.log(await response.text());
+    //console.log(await 'response from lab 4:', response.text());
     const eventIds = await response.json();
+    //console.log('ids server before mapping: ',eventIds);
     return eventIds.events.map((e) => e.uuid);
 }
 exports.searchEvents = searchEvents;
