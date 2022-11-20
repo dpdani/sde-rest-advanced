@@ -21,26 +21,21 @@ const searchEvents = async (lat, lon, category) => {
     if (category !== "") {
         query += `&category=${category}`;
     }
-    // let query = `${process.env.LAB_4_URL}/v1/events`
-    console.log(query);
+    console.log('QUERY: ', query);
     const response = await fetch(query);
-    //console.log(await 'response from lab 4:', response.text());
     const eventIds = await response.json();
-    //console.log('ids server before mapping: ',eventIds);
     return eventIds.events.map((e) => e.uuid);
 }
 exports.searchEvents = searchEvents;
 
 const prepareOneEvent = async (eventId) => {
     let url = `${process.env.LAB_4_URL}/v1/events/${eventId}`;
-    // console.log(url);
     const response = await fetch(url);
     const content = await response.json();
-    //console.log("JSON CONTENT FROM LAB4: ", content);
     return {
         id: eventId,
         title: content.title,
-        // Your code here for category
+        // exercise 2 - #Your code here 
         lat: content.physicalAddress.geo.coordinates[0],
         lon: content.physicalAddress.geo.coordinates[1]
     };

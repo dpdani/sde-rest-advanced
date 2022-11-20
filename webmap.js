@@ -1,6 +1,5 @@
 let params = (new URL(location)).searchParams;
 let lat, lon;
-let events;
 
 const L = require('leaflet');
 
@@ -27,8 +26,8 @@ xhttp.onreadystatechange = function() {
 
       // Response
 	  console.log("response: ", this.responseText);
-      events = JSON.parse(this.responseText);
-
+      let events = JSON.parse(this.responseText);
+	  
 	  // Set popups
 	  if(events !== undefined){
 		console.log("LENGHT: ", events.length)
@@ -36,8 +35,7 @@ xhttp.onreadystatechange = function() {
 		for (var i = 0; i < events.length; i++) {
 			console.log("ADDEDD Event: ", events[i]);
 
-			marker = new L.marker([events[i].lat, events[i].lon])
-			  .bindPopup(events[i].title);
+			marker = new L.marker([events[i].lat, events[i].lon]).bindPopup(events[i].title);
 
 			markers.addLayer(marker);
 		}
