@@ -27,20 +27,22 @@
         <label for="lat">Latitude</label></p>
       <p>
         <input class="w3-input" type="number" id="lon" name="lon" step="any" required min="0">
-        <label for="lon">Longitude</label></p>
-      <!--<p>
-        <input class="w3-input" type="text" id="add" name="add">
-        <label for="add">Address</label></p>-->
+        <label for="lon">Longitude</label></p>  
+      <!-- Your code here / exercise 2 -->
+      <p>
+        <input class="w3-input" type="text" id="cat" name="cat">
+        <label for="lon">Category</label></p>
+      <!-- End code exercise 2 -->
       <br>
       <div class="w3-left">
         <input type="submit" value="Submit" class="w3-btn w3-indigo ">
       </div>
       <div class="w3-right">
         <button type="button" class="w3-btn w3-purple w3-round-xxlarge"
-                onclick="loadCordinates(41.40338, 2.17403, 'Sagrada Familia');">Sagrada Familia
+                onclick="loadCordinates(41.8906032, 12.4877369, 'Colosseo')">Colosseo
         </button>
         <button type="button" class="w3-btn w3-purple w3-round-xxlarge"
-                onclick="loadCordinates(41.890210, 12.492231, 'Colosseum')">Colosseum
+                onclick="loadCordinates(46.0673286, 11.1169714, 'Trento')">Trento
         </button>
         <button type="button" class="w3-btn w3-purple w3-round-xxlarge"
                 onclick="loadCordinates(45.454967, 11.029849, 'Verona')">Verona
@@ -57,11 +59,12 @@
     <form class="w3-container" action="/searchOSM" method="get">
       <p>
         <input class="w3-input" type="text" id="name" name="name" required>
-        <label for="name">Name</label></p>
-        <input id="sbname" type="submit" value="Search by name" class="w3-btn w3-indigo">
-        <!--<div class="w3-left" style="margin-left: 10px;"></div>-->
+        <label for="name">Name</label>
+      </p>
+      <input id="sbname" type="submit" value="Search by name" class="w3-btn w3-indigo">
     </form>
     <br><br>
+    <!-- End code exercise 3 -->
   </div>
 </div>
 </body>

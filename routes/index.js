@@ -11,8 +11,8 @@ router.get('/', function(req, res, next) {
 });
 
 // GET test lab4 APIs
-router.get("/test", async function (req, res, next) {
-  const eventIds = await lab4client.searchEvents(45.454967, 11.029849, "", new Date("2022-10-18"));
+router.get("/test", async function (req, res) {
+  const eventIds = await lab4client.searchEvents(45.454967, 11.029849, "");
   let events = await lab4client.prepareEventsForMap(eventIds);
   await res.send(events);
 });
@@ -28,9 +28,10 @@ router.get("/events", async function (req, res, next) {
 });
 
 // flow: given coordinates retrive JSON with events near the coordinates
-async function flow(lat, lon){
+async function flow(lat, lon, cat){
   // Read lab 4 data 
-  const eventIds = await lab4client.searchEvents(lat, lon, "");
+  // Write your code here - exercise 2
+  const eventIds = await lab4client.searchEvents(lat, lon, cat);
   json_events = await lab4client.prepareEventsForMap(eventIds);
 }
 
@@ -39,16 +40,19 @@ router.get("/flow", async function (req, res, next) {
   // Read params
   let lat = req.query.lat;
   let lon = req.query.lon;
+  // Write your code here - exercise 2
+  let cat = req.query.cat;
 
   // Query REST basic to get data
-  await flow(lat, lon);
+  // Write your code here - exercise 2
+  await flow(lat, lon, cat);
 
   // Redirect to standard route --> '/' 
   await res.redirect('../?' + new URLSearchParams({lat:lat, lon:lon}));
 });
   
 
-// GET searchOSM function - given a name, retrieve JSON with events
+// GET searchOSM function
 router.get('/searchOSM', (req, res, next) => {
   // Read params
   let name = req.query.name;
@@ -62,10 +66,12 @@ router.get('/searchOSM', (req, res, next) => {
     // Extract coordinates
     let lat = json[0].lat;
     let lon = json[0].lon;
+    console.log("LATITUDE: " , lat);
+    console.log("LONGITUDE: ", lon);
 
-    // Exercise 3 - Your code here
-    await flow(lat, lon);
-    
+    // Mini assignment - Your code here
+    await flow(lat, lon, "");
+
     // Redirect to standard route --> '/' 
     await res.redirect('../?' + new URLSearchParams({lat:lat, lon:lon}));
   });

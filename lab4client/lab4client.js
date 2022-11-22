@@ -10,7 +10,7 @@ const searchEvents = async (lat, lon, category) => {
     const city = "";
     let query = `${process.env.LAB_4_URL}/v1/events?`
     if (lat !== undefined && lon !== undefined) {
-        query += `&geo=${lat},${lon}`;
+        query += `&geo=${lon},${lat}`;
     }
     if (defaultRadius !== undefined) {
         query += `&radius=${defaultRadius}`;
@@ -35,9 +35,10 @@ const prepareOneEvent = async (eventId) => {
     return {
         id: eventId,
         title: content.title,
-        // exercise 2 - #Your code here 
-        lat: content.physicalAddress.geo.coordinates[0],
-        lon: content.physicalAddress.geo.coordinates[1]
+        lon: content.physicalAddress.geo.coordinates[0],
+        lat: content.physicalAddress.geo.coordinates[1],
+        // Write your code here - exercise 1
+        cat: content.category 
     };
 }
 

@@ -6,8 +6,6 @@ const L = require('leaflet');
 lat = params.get('lat');
 lon = params.get('lon');
 
-console.log("In to Webmap");
-
 const map = L.map('map').setView([lat, lon], 13);
 
 L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
@@ -33,12 +31,13 @@ xhttp.onreadystatechange = function() {
 		console.log("LENGHT: ", events.length)
 		var markers = L.markerClusterGroup();
 		for (var i = 0; i < events.length; i++) {
-			console.log("ADDEDD Event: ", events[i]);
-
-			marker = new L.marker([events[i].lat, events[i].lon]).bindPopup(events[i].title);
-
+			// Create new marker
+			marker = new L.marker([events[i].lat, events[i].lon])
+			.bindPopup(events[i].title + "<br/>[" + events[i].cat + "]" /*Write your code here - exercise 1*/);
+			// Adding the marker into a Layer
 			markers.addLayer(marker);
 		}
+		// Adding the layer into the map
 		map.addLayer(markers);
 	  }
    }
