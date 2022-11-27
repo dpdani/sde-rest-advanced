@@ -17,8 +17,8 @@ router.get("/test", async function (req, res) {
   await res.send(events);
 });
 
-// GLOBAL variable - to be sended in '/events'
-var json_events;
+// GLOBAL variable - to be sent in '/events'
+let json_events;
 
 // GET test lab4 APIs
 router.get("/events", async function (req, res, next) {
@@ -27,7 +27,7 @@ router.get("/events", async function (req, res, next) {
   res.send(json_events);
 });
 
-// flow: given coordinates retrive JSON with events near the coordinates
+// flow: given coordinates retrieve JSON with events near the coordinates
 async function flow(lat, lon, cat){
   // Read lab 4 data 
   // Write your code here - exercise 2
@@ -35,7 +35,7 @@ async function flow(lat, lon, cat){
   json_events = await lab4client.prepareEventsForMap(eventIds);
 }
 
-// GET flow function - given lat & lon, retrive JSON with events 
+// GET flow function - given lat & lon, retrieve JSON with events
 router.get("/flow", async function (req, res, next) {
   // Read params
   let lat = req.query.lat;
