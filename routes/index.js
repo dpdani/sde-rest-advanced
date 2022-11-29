@@ -24,6 +24,7 @@ router.get("/events", async function (req, res, next) {
   console.log("json-event: ", json_events);
   res.header("Content-Type", "application/json");
   res.send(json_events);
+  json_events = 100;
 });
 
 // flow: given coordinates retrieve JSON with events near the coordinates
