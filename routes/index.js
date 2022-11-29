@@ -55,9 +55,8 @@ router.get("/flow", async function (req, res, next) {
 router.get('/searchOSM', (req, res, next) => {
   // Read params
   let name = req.query.name;
-  
-  // Query nominatim to get the place data (coordinates)
-  fetch(/*Nominatim API*/ + new URLSearchParams({q:name, format:'json'})).then(async(response)=>{
+   
+  fetch(/*Nominatim API - Your code here / exercise 3*/ + new URLSearchParams({q:name, format:'json'})).then(async(response)=>{
     // Read the response
 	  let body = await response.text();
 	  let json = JSON.parse(body);
