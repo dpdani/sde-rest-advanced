@@ -44,7 +44,7 @@ router.get("/flow", async function (req, res, next) {
 
   // Query REST basic to get data
   // Write your code here - exercise 2
-  await flow(lat, lon, "");
+  await flow(lat, lon);
 
   // Redirect to standard route --> '/' 
   await res.redirect('../?' + new URLSearchParams({lat:lat, lon:lon}));
