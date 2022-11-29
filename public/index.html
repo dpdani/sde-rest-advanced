@@ -10,7 +10,6 @@
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
   integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
   crossorigin=""/>
-  <!--<link rel="script" href="js/myjs.js"/>-->
   <title>SDE Rest Advanced</title>
 </head>
 
@@ -29,10 +28,6 @@
         <input class="w3-input" type="number" id="lon" name="lon" step="any" required min="0">
         <label for="lon">Longitude</label></p>  
       <!-- Your code here / exercise 2 -->
-      <p>
-        <input class="w3-input" type="text" id="cat" name="cat">
-        <label for="lon">Category</label></p>
-      <!-- End code exercise 2 -->
       <br>
       <div class="w3-left">
         <input type="submit" value="Submit" class="w3-btn w3-indigo ">
@@ -53,15 +48,6 @@
     <div id="map" class=""></div>
     <br><br>
     <!-- Your code here / exercise 3 -->
-    <form class="w3-container" action="/searchOSM" method="get">
-      <p>
-        <input class="w3-input" type="text" id="name" name="name" required>
-        <label for="name">Name</label>
-      </p>
-      <input id="sbname" type="submit" value="Search by name" class="w3-btn w3-indigo">
-    </form>
-    <br><br>
-    <!-- End code exercise 3 -->
     <script src="js/webmap.js"></script>
     <script src="js/myjs.js"></script>
     <script src="js/leaflet.markercluster.js"></script>

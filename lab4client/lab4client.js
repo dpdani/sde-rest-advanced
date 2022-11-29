@@ -36,9 +36,8 @@ const prepareOneEvent = async (eventId) => {
         id: eventId,
         title: content.title,
         lon: content.physicalAddress.geo.coordinates[0],
-        lat: content.physicalAddress.geo.coordinates[1],
+        lat: content.physicalAddress.geo.coordinates[1]
         // Write your code here - exercise 1
-        cat: content.category 
     };
 }
 

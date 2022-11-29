@@ -14,7 +14,7 @@ L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
 }).addTo(map);
 
 
-// Chiamata ajax --> ritorna events
+// Ajax call to get events
 
 var xhttp = new XMLHttpRequest();
 xhttp.open("GET", "/events", true);
@@ -33,7 +33,7 @@ xhttp.onreadystatechange = function() {
 		for (var i = 0; i < events.length; i++) {
 			// Create new marker
 			marker = new L.marker([events[i].lat, events[i].lon])
-			.bindPopup(events[i].title + "<br/>[" + events[i].cat + "]" /*Write your code here - exercise 1*/);
+			.bindPopup(events[i].title/*Write your code here - exercise 1*/);
 			// Adding the marker into a Layer
 			markers.addLayer(marker);
 		}

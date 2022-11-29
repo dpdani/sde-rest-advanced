@@ -28,10 +28,10 @@ router.get("/events", async function (req, res, next) {
 });
 
 // flow: given coordinates retrieve JSON with events near the coordinates
-async function flow(lat, lon, cat){
+async function flow(lat, lon){
   // Read lab 4 data 
   // Write your code here - exercise 2
-  const eventIds = await lab4client.searchEvents(lat, lon, cat);
+  const eventIds = await lab4client.searchEvents(lat, lon, "");
   json_events = await lab4client.prepareEventsForMap(eventIds);
 }
 
@@ -41,11 +41,10 @@ router.get("/flow", async function (req, res, next) {
   let lat = req.query.lat;
   let lon = req.query.lon;
   // Write your code here - exercise 2
-  let cat = req.query.cat;
 
   // Query REST basic to get data
   // Write your code here - exercise 2
-  await flow(lat, lon, cat);
+  await flow(lat, lon, "");
 
   // Redirect to standard route --> '/' 
   await res.redirect('../?' + new URLSearchParams({lat:lat, lon:lon}));
@@ -58,7 +57,7 @@ router.get('/searchOSM', (req, res, next) => {
   let name = req.query.name;
   
   // Query nominatim to get the place data (coordinates)
-  fetch('https://nominatim.openstreetmap.org/search?' + new URLSearchParams({q:name, format:'json'})).then(async(response)=>{
+  fetch(/*Nominatim API*/ + new URLSearchParams({q:name, format:'json'})).then(async(response)=>{
     // Read the response
 	  let body = await response.text();
 	  let json = JSON.parse(body);
@@ -70,7 +69,6 @@ router.get('/searchOSM', (req, res, next) => {
     console.log("LONGITUDE: ", lon);
 
     // Mini assignment - Your code here
-    await flow(lat, lon, "");
 
     // Redirect to standard route --> '/' 
     await res.redirect('../?' + new URLSearchParams({lat:lat, lon:lon}));
