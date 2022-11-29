@@ -3,7 +3,6 @@ const express = require('express');
 const fetch  = require('node-fetch');
 const router = express.Router();
 const lab4client = require('../lab4client/lab4client')
-const functions = require('../routes/functions')
 
 // GET home page - render index page
 router.get('/', function(req, res, next) {
